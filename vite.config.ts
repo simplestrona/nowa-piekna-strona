@@ -10,5 +10,5 @@ export default defineConfig({
       crawlLinks: true,
       routes: ["/", "/sitemap.xml", "/robots.txt"],
     },
-  },
+  } as any,
 });
