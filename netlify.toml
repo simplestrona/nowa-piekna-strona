@@ -1,6 +1,12 @@
 [build]
-  command = "bun run build"
+  command = "bun run build && mkdir -p .netlify/functions-internal/server && cp -R dist/server/. .netlify/functions-internal/server/"
   publish = "dist/client"
 
 [build.environment]
-  NITRO_PRESET = "static"
+  NITRO_PRESET = "netlify"
+
+[[redirects]]
+  from = "/*"
+  to = "/.netlify/functions/server"
+  status = 200
+  force = false
