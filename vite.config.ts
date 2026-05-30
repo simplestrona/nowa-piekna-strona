@@ -8,14 +8,5 @@ export default defineConfig({
   },
   nitro: {
     preset: process.env.NITRO_PRESET ?? (isNetlify ? "netlify" : "cloudflare-module"),
-    ...(isNetlify
-      ? {
-          output: {
-            dir: "dist",
-            publicDir: "dist/client",
-            serverDir: "dist/.netlify/functions-internal/server",
-          },
-        }
-      : {}),
   },
 });
