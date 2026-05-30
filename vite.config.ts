@@ -5,6 +5,10 @@ export default defineConfig({
     server: { entry: "server" },
   },
   nitro: {
-    preset: process.env.NITRO_PRESET ?? (process.env.NETLIFY ? "netlify" : "cloudflare-module"),
+    preset: process.env.NITRO_PRESET ?? (process.env.NETLIFY ? "static" : "cloudflare-module"),
+    prerender: {
+      crawlLinks: true,
+      routes: ["/", "/sitemap.xml", "/robots.txt"],
+    },
   },
 });
